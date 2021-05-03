@@ -1,2 +1,1 @@
-python -m pip install pandas
-python -m pip install xlrd
+python -m conda install xlrd
