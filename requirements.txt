@@ -1,0 +1,7 @@
+streamlit_aggrid
+streamlit==0.73.0
+numpy
+matplotlib
+pydeck
+openpyxl
+xlrd
