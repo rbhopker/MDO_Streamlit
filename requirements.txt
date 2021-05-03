@@ -10,3 +10,4 @@ pandas
 scipy
 sko
 cvxpy
+geneticalgorithm
