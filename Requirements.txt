@@ -1,1 +1,2 @@
-python -m conda install xlrd
+pip install xlrd
+pip install streamlit --upgrade
