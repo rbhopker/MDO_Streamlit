@@ -9,4 +9,3 @@ dill
 pandas
 scipy
 sko
-pickle
