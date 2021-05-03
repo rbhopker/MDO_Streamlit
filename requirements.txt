@@ -11,4 +11,3 @@ scipy
 sko
 cvxpy
 geneticalgorithm
-timeit
