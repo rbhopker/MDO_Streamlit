@@ -9,3 +9,4 @@ dill
 pandas
 scipy
 sko
+cvxpy
