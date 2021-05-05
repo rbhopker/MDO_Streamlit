@@ -219,7 +219,7 @@ if st.checkbox('View manure transport path for active farms'):
     [distance, wIn, total_solids_perc, wComp,Tpath] = dict_T[tuple(active_farms1)]
     r = load_r_path(Tpath)
     st.write('Active farms: current truck location in red')
-    curr_step = st.slider('Step',int(min(Tpath)),int(max(Tpath)),value =int(len(Tpath)-1), step = 1)
+    curr_step = st.slider('Step',0,int(len(Tpath)-1),value =0, step = 1)
     
     # r_active,Tpath = active_farmsfun(False,Tpath[curr_step])
     # print(Tpath)
