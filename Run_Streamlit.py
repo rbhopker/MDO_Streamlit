@@ -163,7 +163,7 @@ view_state = pdk.ViewState(
 def active_farmsfun(tf,dig_id = None):
     active_farms1= x[4:11] 
     active_farms1 = [0 if num<1 or num==False  else 1 for num in active_farms1]
-    active_farms= x[5:12] 
+    active_farms= x[4:11] 
     active_farms = [False if num<1 or num==False  else True for num in active_farms]
     [distance, wIn, total_solids_perc, wComp,Tpath] = dict_T[tuple(active_farms1)]
     count = 0
