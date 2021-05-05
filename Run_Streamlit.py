@@ -284,7 +284,7 @@ if st.checkbox('Show farm heatmaps'):
     st.write('Manure volume heatmap:')
     r = farm_heatmapFunc()
     st.pydeck_chart(r)
-st.write('Parameters: ')
+st.header('Parameters: ')
 st.write('Electrical Energy: ')
 session_state.e_priceS = st.number_input('Price of electrical energy sold (R$/kWh): ',value = dict_totalUser['e_priceS'])
 session_state.e_c = st.number_input('Electrical energy consumed in the farms (kWh/year): ',value = dict_totalUser['e_c'])
