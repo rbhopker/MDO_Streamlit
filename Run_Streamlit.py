@@ -355,7 +355,7 @@ def page2():
     session_state.g_m = st.number_input('Yealy cost of maintenance of eletricity generator (R$/(unit*year)): ',0.0,value = session_state.g_m)
     st.write('Biodigestor: ')
     session_state.i_main_cost = st.number_input('Yealy cost of maintenance of biodigestor (% of investment/year): ',0.0,1.0,value = session_state.i_main_cost)
-    session_state.L = st.number_input('Biodigestor life (years): ',0,alue = session_state.L)
+    session_state.L = st.number_input('Biodigestor life (years): ',0,value = session_state.L)
     st.write('Financial: ')
     session_state.kd = st.number_input('Cost of debt (%): ',0.0,value = session_state.kd)
     session_state.max_debt = st.number_input('Maximum debt allowed (%): ',0.0,1.0,value = session_state.max_debt)
