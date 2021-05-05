@@ -143,7 +143,7 @@ def page1():
     session_state.farm5 = st.number_input('is farm 5 active: ',0,1,value = session_state.farm5)
     session_state.farm6 = st.number_input('is farm 6 active: ',0,1,value = session_state.farm6)
     session_state.farm7 = st.number_input('is farm 7 active: ',0,1,value = session_state.farm7)
-    session_state.lam = st.number_input('Multi-objective (1 full NPV, 0 full emissions): ',0,1,value = session_state.lam)
+    session_state.lam = st.number_input('Multi-objective (1 full NPV, 0 full emissions): ',0.0,1.0,value = session_state.lam)
     x = [session_state.V_gBurn,session_state.ng,session_state.debt_level,
          session_state.V_cng_p,session_state.farm1,session_state.farm2,
          session_state.farm3,session_state.farm4,session_state.farm5,
