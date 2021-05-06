@@ -453,6 +453,7 @@ def page3():
     st.subheader('')
     pdf = 'Pset 4 Ricardo Hopker.pdf'
     pdf_file = open(pdf, 'rb')
+    print(pdf_file.read())
     base64_pdf = base64.b64encode(pdf_file.read()).decode('Latin-1')
     pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="800" type="application/pdf">' 
     st.markdown(pdf_display, unsafe_allow_html=True)
