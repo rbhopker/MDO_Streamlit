@@ -12,5 +12,3 @@ sko
 cvxpy
 geneticalgorithm
 pymoo
-base64
-itertools
