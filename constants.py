@@ -5,29 +5,18 @@ Created on Mon Mar 22 11:35:01 2021
 @author: Ricardo Hopker
 """
 import pandas as pd
-
+import pickle
 from math import sin, cos, sqrt, atan2, radians, pi
-
-dec_mat = pd.read_excel("Decision_variables.xlsx") #Load Decision matrix
-exp_1 = dec_mat.iloc[0] #Load first experiment from Decision matrix
-
-Farm1_lat = radians(exp_1["Farm 1 Lat"])
-Farm1_lon = radians(exp_1["Farm 1 Long"])
-Farm2_lat = radians(exp_1["Farm 2 Lat"])
-Farm2_lon = radians(exp_1["Farm 2 Long"])
-Farm3_lat = radians(exp_1["Farm 3 Lat"])
-Farm3_lon = radians(exp_1["Farm 3 Long"])
-Farm4_lat = radians(exp_1["Farm 4 Lat"])
-Farm4_lon = radians(exp_1["Farm 4 Long"])
-Farm5_lat = radians(exp_1["Farm 5 Lat"])
-Farm5_lon = radians(exp_1["Farm 5 Long"])
-
-man1 = exp_1["Farm 1 manure"]
-man2 = exp_1["Farm 2 manure"]
-man3 = exp_1["Farm 3 manure"]
-man4 = exp_1["Farm 4 manure"]
-man5 = exp_1["Farm 5 manure"]
-
+#Farm_name = [Longitude, Latitudem Volume_per_day, Solid_percentage, cattle_percentage, pig_percentage, poultry_percentrage]
+Farm_data = {
+    "Farm_1": [-25.46047176, -49.70418413, 2.18, 0.03, 1.0, 0.0, 0.0],
+    "Farm_2": [-25.58610376,-49.77387713, 4.128, 0.05, 0.0, 1.0, 0.0],
+    "Farm_3": [-25.49456176,-49.83134413, 11.04, 0.03, 0.0, 1.0, 0.0],  
+    "Farm_4": [-25.42129176,-49.77551413, 3.576, 0.03, 0.0, 1.0, 0.0],
+    "Farm_5": [-25.22145176,-49.89957413, 15.99, 0.03, 0.0, 1.0, 0.0],
+    "Farm_6": [-25.52145176,-49.75957413, 8.04, 0.03, 0.0, 1.0, 0.0],
+    "Farm_7": [-25.62145176,-49.71957413, 15.09, 0.03, 0.0, 1.0, 0.0]}
+    
 #Cost Constants
 a_d = [126.7373687,941.38836117] #R$/m^3 [1] --> upflow [0]--> covered lagoon 
 b_d = [16248.10090549,18897.67690485] #R$ [1] --> upflow [0]--> covered lagoon
@@ -45,6 +34,7 @@ kd = 0.04 # interest on debt for clean energy, loan provided by BNDES
 tax = 0.12
 g_d = 25000.0 # R$/Generator (36kVa)
 g_m = g_d*0.1 #R$/year (10% of maintenance cost)
+ng_max = 20
 # CF = 4.17 #kWh/km
 max_debt = 0.8
 p_nox = 4369 # $/ton (mean) [min, max] -> [345,14915]
@@ -74,7 +64,12 @@ T_L_km_diesel =1/2.97601 # Truck consumption of Diesel (L) per km
 P_diesel = 3.3 #R$/L of diesel
 C_upgrade_cng = 0.78 # R$/m^3 to upgrade from biogas to CNG
 C_V_gas = 0.16 #R$/m^3 to produce biogas
+NSGA_pop = 100
+NSGA_gen = 500
+NSGA_off = 10
 
+with open('full_transp.p', 'rb') as fp:
+    dict_T = pickle.load(fp)
 
 #Fixing units
 p_nox = p_nox*USS_to_RS
@@ -104,7 +99,14 @@ rxVCap = 0.3 # reactor volume capacity increase (maybe range from 10% - 50%)
 # Tw = 0 # K water temperature around reactor
 # Pdig =  1 # atm
 
+
+#Biogas/fertilizer upgrading constants
+ch4_pur = 0.965 #methane purity rate
+fer_conv_r = 0.9 #bio-fertilizer conversion rate
+
+
+
 dict_total = {}
 for i in dir():
-    if i[0]!='_' and i!='dict_total' and not(callable(globals()[i])) and i!='pd':
+    if i[0]!='_' and i!='dict_total' and not(callable(globals()[i])) and i!='pd' and i!='fp' and i!='pickle':
         dict_total[i] = globals()[i]

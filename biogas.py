@@ -1,9 +1,9 @@
-def biomethane(G_in, G_comp):
+def biomethane(G_in, G_comp, dict_total):
     #G_comp=[ch4Out, co2Out, noxOut, soxOut]
     #constants
-    ch4_pur = 0.965  #ch4 density of biomethane in Brazil
+    ch4_pur = dict_total['ch4_pur']  #ch4 density of biomethane in Brazil
     v_bm = G_in * (G_comp[0] / ch4_pur)  #biomethane produced
-    
+
     return v_bm
 
 
@@ -15,18 +15,20 @@ def scm_to_m3(scm):
     T1 = 15 #scm temp
     T2 = 50 #biomethane temp
     m3 = scm * (P1/P2) * ((T2+K)/(T1+K))
+    
     return m3
 
-def biofertilizer(digOut):
+def biofertilizer(digOut, dict_total):
     # vs_r = 0.43   #rate of volatile solid in the total manure
     # vs = kilos * vs_r  #amount of volatile solid
     
     #pdy = (kilos - vs) + (vs * 0.4)  #(non-volatile solid) + (remnants of volatile solid)
-    pdy = digOut * 0.9 #rate of digestate conversion to biofertilizer
+    fer_conv_r = dict_total['fer_conv_r']
+    pdy = digOut * fer_conv_r #rate of digestate conversion to biofertilizer
     
     return pdy
     
-def ghg(kilos, wComp, G_in, G_comp):
+def ghg(kilos, wComp, G_in, G_comp, dict_total):
     #GHG release by manure type (unit: g/head/yr) -> g/tonne  (kilos kg/day)
     #CH4: cattle 39.5; swine 18; poultry 0.157
     #CO2: cattle 12; swine 5.47; poultry 0.048
@@ -48,7 +50,7 @@ def ghg(kilos, wComp, G_in, G_comp):
     
     #GHG captured during the biogas post-treatment process
     #tentatively measured based on the result from biomethane & biogas composition rate
-    ch4_c = 0.001 * biomethane(G_in, G_comp)
+    ch4_c = 0.001 * biomethane(G_in, G_comp, dict_total)
     co2_c = 0.001 * G_in * G_comp[1] * 0.9 #CO2 recovery rate 90%
     nox_c = 0.001 * G_in * G_comp[2]
     sox_c = 0.001 * G_in * G_comp[3]
