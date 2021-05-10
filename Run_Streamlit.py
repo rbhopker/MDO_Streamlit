@@ -138,7 +138,7 @@ def page1():
     data['id'] = list(range(len(data)))
     data['id+1'] = list(range(1,len(data)+1))
     st.title('Biodigestor 2021 EM.428 MIT')
-    st.header("Ricardo Hopker, Nicholas Rensburg, Jacqueline Baidoo and ByeongJo Kong")
+    st.header("Ricardo Hopker, Niek van Rensburg, Jacqueline Baidoo and ByeongJo Kong")
     st.write("")
     st.subheader("Inputs:")
     #[V_gBurn,ng,Tdig,debt_level,V_cng_p,farm1,farm2,farm3,farm4,farm5,farm6,farm7]
@@ -469,7 +469,7 @@ def pageTransport():
 def page3():
     st.title('Model explanation and final report: ')
     st.header('This is an optimization model for biodigestors created for the MIT EM.428 class of Spring 2021')
-    st.subheader('By: Ricardo Hopker, Nicholas Rensburg, Jacqueline Baidoo and ByeongJo Kong')
+    st.subheader('By: Ricardo Hopker, Niek van Rensburg, Jacqueline Baidoo and ByeongJo Kong')
     st.subheader('')
     pdf = 'Pset 4 Ricardo Hopker.pdf'
     pdf_file = open(pdf, 'rb')
