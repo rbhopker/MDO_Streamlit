@@ -65,6 +65,7 @@ def load_session():
             GA_pop = dict_total['GA_pop'],
             GA_gen = dict_total['GA_gen'],
             GA_off = dict_total['GA_off'],
+            truck_gwp_emmited = dict_total['truck_gwp_emmited'],
             lam = float(dict_total['lam'])
                                      )
     return session_state
@@ -108,6 +109,7 @@ def update_user_dict():
     dict_totalUser['GA_gen'] = session_state.GA_gen
     dict_totalUser['GA_off'] = session_state.GA_off
     dict_totalUser['lam'] = session_state.lam
+    dict_total['truck_gwp_emmited'] = session_state.truck_gwp_emmited
     return dict_totalUser
     
 def main():
@@ -358,6 +360,7 @@ def page2():
     session_state.T_m3_km_cng = st.number_input('Truck average CNG consumption (m^3/km): ',0.0,value = session_state.T_m3_km_cng)
     session_state.T_L_km_diesel = st.number_input('Truck average diesel consumption (L/km): ',0.0,value = session_state.T_L_km_diesel)
     session_state.V_per_truck = st.number_input('Truck maximum capacity (m^3): ',0.0,value = session_state.V_per_truck)
+    session_state.truck_gwp_emmited = st.number_input('Truck emission CO2 (kgCO2/km): ',0.0,value = session_state.truck_gwp_emmited)
     st.write('Biogas: ')
     session_state.C_V_gas = st.number_input('Cost to produce biogas (R$/m^3): ',0.0,value = session_state.C_V_gas)
     session_state.p_g = st.number_input('Selling price of biogas (R$/m^3): ',0.0,value = session_state.p_g)
