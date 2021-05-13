@@ -190,7 +190,7 @@ def page1():
         fig,ax = plt.subplots()
         ax.scatter(df['NPV'],df['gwp'],s=20,c='r')
         ax.set_xlabel('NPV (R$)')
-        ax.set_ylabel('gwp (CO2e/year)')
+        ax.set_ylabel('gwp (m^3 of CO2e/year)')
         ax.plot(df['NPV'],df['gwp'],c='r',lw=1)
         
         ax.scatter(annot[0],annot[1],marker='*',c='y',s=120)
