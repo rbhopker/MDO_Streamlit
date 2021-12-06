@@ -11,4 +11,4 @@ scipy
 sko
 cvxpy
 geneticalgorithm
-pymoo
+pymoo==0.4.2.2
