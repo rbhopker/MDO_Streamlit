@@ -172,7 +172,7 @@ def page1():
         # xopt = fminClean(x,args)
         def print_dict(dictt):
             for key, value in dictt.items():
-                print(f"Key: {key}, Value type: {type(value)}")
+                st.write(f"Key: {key}, Value type: {type(value)}")
         print_dict(dict_totalUser)
         res = run_singleJ(dict_totalUser)
         xopt = res.X
