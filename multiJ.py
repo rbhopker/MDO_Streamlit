@@ -84,7 +84,7 @@ def run_multiJ(dict_t):
                   crossover=crossover,
                   n_offsprings=dict_t['NSGA_off'],
                   mutation=mutation,
-                  eliminate_duplicates=True,
+                  eliminate_duplicates=MyDuplicatedElimination(),
     )
     res = minimize(problem,
                    algorithm,
@@ -187,9 +187,9 @@ class BiogasSingleJ(Problem):
         x1=np.array(x1)
         # x2=np.array(x2)
         out["F"] = np.column_stack([x1])
-def print_dict(dictt):
-    for key, value in dictt.items():
-        print(f"Key: {key}, Value type: {type(value)}")
+# def print_dict(dictt):
+#     for key, value in dictt.items():
+#         print(f"Key: {key}, Value type: {type(value)}")
 def run_singleJ(dict_t):
 # def run_multiJ():
     mask = ["real","int","real","real",
