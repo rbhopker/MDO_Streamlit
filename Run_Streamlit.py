@@ -481,7 +481,7 @@ def page3():
         base64_pdf = base64.b64encode(f.read()).decode('utf-8')
     pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="800" type="application/pdf"></iframe>' 
     st.markdown(pdf_display, unsafe_allow_html=True)
-    pdf2 = '<iframe src="https://1drv.ms/b/s!AjeyGGVbPfNHgep1yS2US99glwuhWQ?e=8ERK33" width="700" height="800" type="application/pdf"></iframe>' 
+    pdf2 = '<iframe src="https://1drv.ms/b/s!AjeyGGVbPfNHgep1yS2US99glwuhWQ?e=8ERK33" width="700" height="800"></iframe>' 
     st.markdown(pdf2,unsafe_allow_html=True)
     # components.iframe(f"data:application/pdf;base64,{base64_pdf}")
 
