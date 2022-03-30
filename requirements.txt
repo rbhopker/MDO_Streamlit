@@ -1,5 +1,5 @@
 streamlit_aggrid
-streamlit==0.82.0
+streamlit==0.83.0
 numpy
 matplotlib
 pydeck
