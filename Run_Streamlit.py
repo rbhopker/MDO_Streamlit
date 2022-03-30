@@ -179,6 +179,7 @@ def page1():
         xoptSer = pd.DataFrame(pd.Series(cleanXopt(xopt,dict_totalUser),index=['V_gBurn','ng','debt_level','V_cng_p','farm1','farm2','farm3','farm4','farm5','farm6','farm7'])).transpose()
         st.write('Best X')
         st.write(xoptSer.style.format({'V_gBurn':"{:.2}",'debt_level':"{:.2}",'V_cng_p':"{:.2}"}))
+        # st.write(xoptSer)
         # print(cleanXopt(xopt))
         st.write('Best Obj')
         st.write(-cleanBiodigestor(xopt,dict_totalUser,session_state.lam,True,False,False,True))
@@ -475,9 +476,9 @@ def page3():
     st.header('This is an optimization model for biodigestors created for the MIT EM.428 class of Spring 2021')
     st.subheader('By: Ricardo Hopker, Niek van Rensburg, Jacqueline Baidoo and ByeongJo Kong')
     st.subheader('')
-    pdf = 'Pset 4 Ricardo Hopker.pdf'
-    pdf_file = open(pdf, 'rb')
-    base64_pdf = base64.b64encode(pdf_file.read()).decode('Latin-1')
+    pdf = 'Biogas_final_report_FINAL.pdf'
+    with open(pdf, 'rb') as f:
+        base64_pdf = base64.b64encode(f.read()).decode('utf-8')
     pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="800" type="application/pdf">' 
     st.markdown(pdf_display, unsafe_allow_html=True)
 
