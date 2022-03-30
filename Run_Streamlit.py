@@ -479,7 +479,7 @@ def page3():
     pdf = 'Biogas_final_report_FINAL.pdf'
     with open(pdf, 'rb') as f:
         base64_pdf = base64.b64encode(f.read()).decode('utf-8')
-    pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="800" type="application/pdf"></iframe>' 
+    pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="800" scrolling= "yes" type="application/pdf"></iframe>' 
     st.markdown(pdf_display, unsafe_allow_html=True)
     # pdf2 = '<embed src="https://1drv.ms/b/s!AjeyGGVbPfNHgep1yS2US99glwuhWQ?e=8ERK33" width="700" height="800">' 
     # st.markdown(pdf2,unsafe_allow_html=True)
