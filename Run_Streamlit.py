@@ -486,5 +486,5 @@ def page3():
     # components.iframe("https://1drv.ms/b/s!AjeyGGVbPfNHgep1yS2US99glwuhWQ?e=8ERK33")
     # with open(pdf, 'r', encoding='utf-8') as f:
     #     source_code = f.read()
-    components.iframe(base64_pdf)
+    components.iframe(pdf_display)
 main()
