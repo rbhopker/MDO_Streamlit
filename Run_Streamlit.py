@@ -22,7 +22,7 @@ from all_best_paths_transport import createTransportSurrogateModel
 # import scipy.optimize as op
 # from Transport import load_data
 import copy
-import streamlit.session_state as SessionState
+import SessionState
 # import json
 def load_session():
     session_state = SessionState.get(e_priceS=dict_total['e_priceS'],
