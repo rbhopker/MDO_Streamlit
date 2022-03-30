@@ -198,6 +198,8 @@ def run_singleJ(dict_t):
                   mutation=mutation,
                   eliminate_duplicates=True,
     )
+    for key, value in dict_t.items():
+        print(f"Key: {key}, Value type: {type(value)}")
     res = minimize(problem,
                    algorithm,
                    ("n_gen", dict_t['GA_gen']),
