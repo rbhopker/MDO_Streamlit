@@ -19,7 +19,22 @@ import pandas as pd
 # from pymoo.util.misc import stack
 import scipy.optimize as op
 from pymoo.algorithms.so_genetic_algorithm import GA
+from pymoo.model.duplicate import DefaultDuplicateElimination
+from scipy.spatial.distance import cdist
 
+class MyDuplicatedElimination(DefaultDuplicateElimination):
+
+    def calc_dist(self, pop, other=None):
+        X = self.func(pop).astype(float)
+
+        if other is None:
+            D = cdist(X, X)
+            D[np.triu_indices(len(X))] = np.inf
+        else:
+            _X = self.func(other).astype(float)
+            D = cdist(X, _X)
+
+        return D
 class BiogasMultiJ(Problem):
 
     def __init__(self,args):
@@ -199,9 +214,9 @@ def run_singleJ(dict_t):
                   crossover=crossover,
                   n_offsprings=dict_t['GA_off'],
                   mutation=mutation,
-                  eliminate_duplicates=True,
+                  eliminate_duplicates=MyDuplicatedElimination(),
     )
-    print_dict(dict_t)
+    # print_dict(dict_t)
     res = minimize(problem,
                    algorithm,
                    ("n_gen", dict_t['GA_gen']),

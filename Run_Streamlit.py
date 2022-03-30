@@ -170,10 +170,10 @@ def page1():
         
         args = (dict_totalUser,session_state.lam,True,False,False,True)
         # xopt = fminClean(x,args)
-        def print_dict(dictt):
-            for key, value in dictt.items():
-                st.write(f"Key: {key}, Value type: {type(value)}")
-        print_dict(dict_totalUser)
+        # def print_dict(dictt):
+        #     for key, value in dictt.items():
+        #         st.write(f"Key: {key}, Value type: {type(value)}")
+        # print_dict(dict_totalUser)
         res = run_singleJ(dict_totalUser)
         xopt = res.X
         xoptSer = pd.DataFrame(pd.Series(cleanXopt(xopt,dict_totalUser),index=['V_gBurn','ng','debt_level','V_cng_p','farm1','farm2','farm3','farm4','farm5','farm6','farm7'])).transpose()
