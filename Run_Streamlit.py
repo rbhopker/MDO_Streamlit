@@ -482,5 +482,6 @@ def page3():
     pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="800" type="application/pdf"></iframe>' 
     # st.markdown(pdf_display, unsafe_allow_html=True)
     st.markdown(pdf_display)
+    components.iframe(f"data:application/pdf;base64,{base64_pdf}")
 
 main()
