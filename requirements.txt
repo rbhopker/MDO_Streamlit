@@ -1,5 +1,5 @@
 streamlit_aggrid
-streamlit == 1.7.0
+streamlit
 numpy
 matplotlib
 pydeck
