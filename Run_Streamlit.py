@@ -484,7 +484,7 @@ def page3():
     # pdf2 = '<embed src="https://1drv.ms/b/s!AjeyGGVbPfNHgep1yS2US99glwuhWQ?e=8ERK33" width="700" height="800">' 
     # st.markdown(pdf2,unsafe_allow_html=True)
     # components.iframe("https://1drv.ms/b/s!AjeyGGVbPfNHgep1yS2US99glwuhWQ?e=8ERK33")
-    with open("https://1drv.ms/b/s!AjeyGGVbPfNHgep1yS2US99glwuhWQ?e=8ERK33", 'r', encoding='utf-8') as f:
+    with open(pdf, 'r', encoding='utf-8') as f:
         source_code = f.read()
     components.html(source_code)
 main()
