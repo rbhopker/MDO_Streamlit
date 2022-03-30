@@ -172,6 +172,9 @@ class BiogasSingleJ(Problem):
         x1=np.array(x1)
         # x2=np.array(x2)
         out["F"] = np.column_stack([x1])
+def print_dict(dictt):
+    for key, value in dictt.items():
+        print(f"Key: {key}, Value type: {type(value)}")
 def run_singleJ(dict_t):
 # def run_multiJ():
     mask = ["real","int","real","real",
@@ -198,8 +201,7 @@ def run_singleJ(dict_t):
                   mutation=mutation,
                   eliminate_duplicates=True,
     )
-    for key, value in dict_t.items():
-        print(f"Key: {key}, Value type: {type(value)}")
+    print_dict(dict_t)
     res = minimize(problem,
                    algorithm,
                    ("n_gen", dict_t['GA_gen']),
