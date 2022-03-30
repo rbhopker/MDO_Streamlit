@@ -6,7 +6,7 @@ pydeck
 openpyxl
 xlrd
 dill
-pandas
+pandas==1.2.4
 scipy
 sko
 cvxpy
